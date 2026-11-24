@@ -3,7 +3,7 @@
 #   cargo test --manifest-path windows/tray-rules/Cargo.toml --target-dir target/tray-rules
 [package]
 name = "negs-windows-tray-rules"
-version = "0.18.0"
+version = "0.19.0"
 edition = "2024"
 license = "GPL-3.0-only"
 publish = false
@@ -18,3 +18,8 @@ doctest = false
 [dependencies]
 # The rules now come from the shared Odin core, through negs-core-rules.
 negs-core-rules = { path = "../../core/rust/rules" }
+
+# negs-core-rules brings the engine (spektrafilm-io) with it: its
+# rawler, as the app uses it (vendor/README.md).
+[patch.crates-io]
+rawler = { path = "../../vendor/rawler" }
